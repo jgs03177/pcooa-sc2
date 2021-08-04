@@ -1,0 +1,18 @@
+name: pytorch
+channels:
+  - defaults
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.9
+  - cudatoolkit=11.1
+  - jupyterlab
+  - numpy
+  - pandas
+  - matplotlib
+  - pytorch
+  - torchvision
+  - torchaudio
+  - tqdm
+  - ipywidgets
+  - scikit-learn
