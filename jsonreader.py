@@ -2,6 +2,7 @@ import json
 import os
 import errno
 import torch
+import numpy as np
 
 
 # process [{'Quantity': a1, 'UnitTypeID': b1}, ...] to {b1:a1, ....}
@@ -40,7 +41,7 @@ def extract_battlelogs_pickle(foldername, picklename=None):
     if picklename is not None:
         picklename = os.path.join("./pickles/", picklename)
     if picklename is not None and os.path.isfile(picklename):
-        pickle = torch.load(picklename)
+        pickle = np.load(picklename)
         l_item = pickle.setdefault("l_item", list())
         l_squad1 = pickle.setdefault("l_squad1", list())
         l_squad2 = pickle.setdefault("l_squad2", list())
@@ -57,7 +58,7 @@ def extract_battlelogs_pickle(foldername, picklename=None):
             pickle["l_squad1"] = l_squad1
             pickle["l_squad2"] = l_squad2
             pickle["l_unmapper"] = l_unmapper
-            torch.save(pickle, picklename)
+            np.savez(picklename, **pickle)
 
     return l_item, l_squad1, l_squad2, l_unmapper
 

@@ -83,7 +83,7 @@ def make_table_macro(basepath, terrains, squadgroup, *,pickleprefix=""):
             p3 = e
             p0 = os.path.join(p1,p2,p3)
             aug = j
-            ttable = make_table(p0, aug, pickleprefix + "{}_{}.bpk".format(t,e))
+            ttable = make_table(p0, aug, pickleprefix + "{}_{}".format(t,e))
             lttable.append(ttable)
     return lttable
 
